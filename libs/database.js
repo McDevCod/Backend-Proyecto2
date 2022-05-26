@@ -1,13 +1,14 @@
 //---Importando Mysql----//
 const mysql=require("mysql2")
+const{dbhost,dbport,dbuser,dbpassword,dbname}=require("./config")
 
 //--Estableciendo función de conexión con la BD----//
 const connection = mysql.createConnection({
-    host:'127.0.0.1', //localhost
-    port:'3306',
-    user:'mcdev',
-    password: 'Hojalat@141',
-    database:'contentDB'
+    host:dbhost, //localhost
+    port:dbport,
+    user:dbuser,
+    password: dbpassword,
+    database:dbname
 })
 
 
