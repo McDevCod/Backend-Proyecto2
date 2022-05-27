@@ -19,9 +19,9 @@ app.set("views", "./views")
 app.set('view engine', 'pug')
 
 
-app.get("/", (reques, response)=>{
-    response.render("index",{
-        title: "Paso de parametros PUG"
+app.get("/registro", (request, response)=>{
+    response.render("registro",{
+        title: "Página de Registro"
     })
 })
 

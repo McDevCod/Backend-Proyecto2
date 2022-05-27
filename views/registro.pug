@@ -1,0 +1,51 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title = Title
+    body
+        header
+            div.navbar_container
+                div.logo_container
+                    img(class = "logo" src = "", alt = "Logo")
+                nav.nav_container 
+                    a(class = "menu_item" href="#") Items
+                    a(class = "menu_item" href="#") Usuarios
+                    a(class = "menu_item" href="#") Listas 
+                    a(class = "menu_item" href="#") Repositorio 
+                    a(class = "menu_item" href="") Registro
+                    div.log_container
+                        p Bienvenido 
+                        a(class = "menu_item" href="") LogIn
+            div.cart_container
+                div.cart_img
+                    img(src="", alt="contenedor")
+            div.other_option
+        main 
+            div.register_container
+                form(class= "data_container" action="#", method="post")
+                     div.register_top
+                        h3 Datos de inicio de sesion
+                        div.inicio_sesion
+                            label(for="username") 
+                            input(type="text", name="username")
+                            label(for=password)
+                            input(type="password", name="password")
+                            label(for="confirmacion") 
+                            input(type="password", name="password_conf")
+                     div.register_bottom
+                        h3 Datos Personales
+                        div.datos_personales
+                            label(for="nombre") 
+                            input(type="text", name="nombre")
+                            label(for=apellido)
+                            input(type="text", name="apellido")
+                            label(for="fecha de nacimiento") 
+                            input(type="date", name="birthday")
+                            label(for="email") 
+                            input(type="email", name="email")
+                button.register_button Registrarse
+
+        footer.footer_section  
