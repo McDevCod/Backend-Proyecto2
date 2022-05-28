@@ -10,19 +10,24 @@ html(lang="en")
             div.navbar_container
                 div.logo_container
                     img(class = "logo" src = "", alt = "Logo")
-                nav.nav_container 
-                    a(class = "menu_item" href="#") Items
-                    a(class = "menu_item" href="#") Usuarios
-                    a(class = "menu_item" href="#") Listas 
-                    a(class = "menu_item" href="#") Repositorio 
-                    a(class = "menu_item" href="") Registro
-                    div.log_container
-                        p Bienvenido 
-                        a(class = "menu_item" href="") LogIn
-            div.cart_container
-                div.cart_img
-                    img(src="", alt="contenedor")
-            div.other_option
+                div.navbar
+                    div.menu_bar
+                        nav.nav_container 
+                            div.menu_items
+                                a(class = "menu_item" href="#") Usuarios
+                                a(class = "menu_item" href="#") Items
+                                a(class = "menu_item" href="#") Listas
+                                a(class = "menu_item" href="#") Repositorio
+                                a(class = "menu_item" href="#") Registro
+                            div.mensaje_container
+                                a(class = "menu_item" href="#") Bienvenido Usuario 
+                        div.log_container
+                            p = Message
+                            a(class = "menu_item" href="") LogIn
+                    div.cart_container
+                        div.cart_img
+                            img(src="", alt="contenedor")
+            
         main 
             div.register_container
                 form(class= "data_container" action="#", method="post")
@@ -31,7 +36,7 @@ html(lang="en")
                         div.inicio_sesion
                             label(for="username") 
                             input(type="text", name="username")
-                            label(for=password)
+                            label(for="password")
                             input(type="password", name="password")
                             label(for="confirmacion") 
                             input(type="password", name="password_conf")
@@ -40,7 +45,7 @@ html(lang="en")
                         div.datos_personales
                             label(for="nombre") 
                             input(type="text", name="nombre")
-                            label(for=apellido)
+                            label(for="apellido")
                             input(type="text", name="apellido")
                             label(for="fecha de nacimiento") 
                             input(type="date", name="birthday")
@@ -48,4 +53,24 @@ html(lang="en")
                             input(type="email", name="email")
                 button.register_button Registrarse
 
-        footer.footer_section  
+        footer.footer_section
+            div.footer_container
+                div.footer_links
+                    div.text_container
+                       h3 About 
+                       a(class="footer_text" href="#") Informacion de Aplicacion 
+                       a(class="footer_text" href="#") Documentacion de Proyecto  
+                    div.text_container
+                       h3 Contacto: 
+                       p Numero Telefónico : 2457891151
+                       p Direccion: Av Lorem Ipso,2345, Chile
+                       p Email: app@gmail.com
+                    div.text_container
+                       h3 Soporte 
+                       a(class="footer_text" href="#") FAQ 
+                       a(class="footer_text" href="#") Tickets
+                div.footer_bot
+                    div.copyright
+                        p Todos los derechos reservados
+                    div.social_bar
+                        p redes sociales bar
