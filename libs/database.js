@@ -1,6 +1,7 @@
 //---Importando Mysql----//
+const { promise } = require("bcrypt/promises")
 const mysql=require("mysql2")
-const{dbhost,dbport,dbuser,dbpassword,dbname}=require("./config")
+const{dbhost,dbport,dbuser,dbpassword,dbname}=require("../config")
 
 //--Estableciendo función de conexión con la BD----//
 const connection = mysql.createConnection({

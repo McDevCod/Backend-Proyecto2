@@ -5,5 +5,13 @@ function view(htmlFileName,response){
     
 }
 
-module.exports= view
+function render_view(htmlFileName,response){
+    return response.render(path.join(__dirname,"..","views",htmlFileName))
+    
+}
+
+module.exports= {
+    view,
+    render_view
+}
 

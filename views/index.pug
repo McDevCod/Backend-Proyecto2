@@ -1,0 +1,29 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title = #{Title}
+    body
+        header
+            div.navbar_container
+                div.logo_container
+                    img(class = "logo" src = "", alt = "Logo")
+                div.navbar
+                    div.menu_bar
+                        nav.nav_container 
+                            div.menu_items
+                                a(class = "menu_item" href="/usuarios") Usuarios
+                                a(class = "menu_item" href="/items") Items
+                                a(class = "menu_item" href="/listas") Listas
+                                a(class = "menu_item" href="/repositorio") Repositorio
+                                a(class = "menu_item" href="/usuarios/registro") Registro
+                            div.mensaje_container
+                                a(class = "menu_item" href="#") Bienvenido Usuario 
+                        div.log_container
+                            p = Message
+                            a(class = "menu_item" href="/login") LogIn
+                    div.cart_container
+                        div.cart_img
+                            img(src="", alt="contenedor")
