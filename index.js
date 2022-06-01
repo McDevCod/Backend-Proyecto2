@@ -24,7 +24,7 @@ const usuarios=require("./routes/usuarios")
 const listas=require("./routes/listas")
 
 app.use(express.json())
-app.use(express.urlencoded({extended: false}))
+app.use(express.urlencoded({extended: true}))
 //app.use(methodOverride('method'))
 
 //------------Global Variables----------------//
