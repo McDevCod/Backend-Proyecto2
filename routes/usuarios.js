@@ -1,78 +1,19 @@
 const express = require("express")
-const { json } = require("express/lib/response")
-
 const router = express.Router()
-const Usercontrol= require ("../controllers/userCtrl")
 
-router.get("/usuario/view",async(request,response)=>{
-        const usercontrol=new Usercontrol()
-        const result =await usercontrol.read_users()
-        console.log(result)
-        if (!result.error){
-            response.json(result.data) 
-        }else{
-            response.json(result.message)
-        }
-   
-  
-})
-
-router.get("/usuario/registro",(request,response)=>{
-    try{
-        const usercontrol=new Usercontrol()
-        const viewdata = {
-            title:"Pagina de registro",
-            welcome:"Bienvenido " + usercontrol.nombre,
-            logStatus:"LogIn",
-            numItem:usercontrol.nitem          
-        }
-        return usercontrol.render_view("usuario/registro",response,viewdata)
-    }
-    catch{
-        console.log("No es posible cargar la página")
-    }
-})
+const UserController = require("../controllers/userCtrl")
 
 
-router.post("/usuario/registro",async (request,response)=>{
-        const usercontrol=new Usercontrol(request.body)
-        const result=await usercontrol.create_user()
-        console.log("la respuesta fue")
-        console.log(result)
-        if (!result.error){
-            //renderizar a pagina main y enviar user id para el bienvenido
-            response.json(result)   
-        }else{
-            //renderizar a pagina de registro y mostrar errores
-            response.json(result.message)
-        }   
 
-    })
 
-router.put("/usuario/update",async (request,response)=>{
-    const usercontrol=new Usercontrol(request.body)
-    const result=await usercontrol.update_users(request.body)
-    if (!result.error){
-            //renderizar a pagina main y enviar user id para el bienvenido
-        response.json(result.data)   
-    }else{
-            //renderizar a pagina de registro y mostrar errores
-        response.json(result.message)
-    }  
+router.get("/usuario/List", UserController.getUserList)
 
-})
+router.get("/usuario/registro",UserController.getUserForm)
 
-router.delete("/usuario/delete",async (request,response)=>{
-    const usercontrol=new Usercontrol(request.body)
-    const result=await usercontrol.delete_user(request.body)
-    if (!result.error){
-            //renderizar a pagina main y enviar user id para el bienvenido
-        response.json(result.data)   
-    }else{
-            //renderizar a pagina de registro y mostrar errores
-        response.json(result.message)
-    }  
+router.post("/usuario/registro",UserController.newUser)
 
-})
+router.put("/usuario/update",UserController.updateUser)
+
+router.delete("/usuario/delete",UserController.deleteUser)
 
 module.exports=router

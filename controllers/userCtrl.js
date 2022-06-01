@@ -2,7 +2,7 @@ const path=require("path")
 const Usuario=require("../models/Usuario")
 //const Usuarioview=require("../views/Usuario/userview")
 
-class UserControl{
+class UserController{
 
     constructor(
         data={username:"invitado",
@@ -27,6 +27,75 @@ class UserControl{
         this.nitem = data.item
         this.data = data
     }
+
+
+    static async getUserList(request,response){
+        const control=new UserController()
+        const result = await control.read_users()
+        console.log(result)
+        if (!result.error){
+            response.json(result.data) 
+        }else{
+            response.json(result.message)
+        }
+    }
+
+    static getUserForm(request,response){
+        try{
+            const control=new UserController()
+            const viewdata = {
+                title:"Pagina de registro",
+                welcome:"Bienvenido " + control.nombre,
+                logStatus:"LogIn",
+                numItem:control.nitem          
+            }
+            return control.render_view("usuario/registro",response,viewdata)
+        }
+        catch{
+            console.log("No es posible cargar la página")
+        }
+    }
+
+    static async newUser(request,response){
+        const control=new UserController(request.body)
+        const result=await control.create_user()
+        console.log("la respuesta fue")
+        console.log(result)
+        if (!result.error){
+            //renderizar a pagina main y enviar user id para el bienvenido
+            response.json(result)   
+        }else{
+            //renderizar a pagina de registro y mostrar errores
+            response.json(result.message)
+        }   
+    }
+
+
+    static async updateUser(request, response){
+        const control=new UserController(request.body)
+        const result=await control.update_users(request.body)
+        if (!result.error){
+                //renderizar a pagina main y enviar user id para el bienvenido
+            response.json(result.data)   
+        }else{
+                //renderizar a pagina de registro y mostrar errores
+            response.json(result.message)
+        }  
+    
+    }
+
+    static async deleteUser(request, response){
+        const control=new UserController(request.body)
+        const result=await control.delete_user(request.body)
+        if (!result.error){
+                //renderizar a pagina main y enviar user id para el bienvenido
+            response.json(result.data)   
+        }else{
+                //renderizar a pagina de registro y mostrar errores
+            response.json(result.message)
+        }  
+    }
+
 
     render_view(ViewName,response,viewdata){
         return response.render(ViewName,{
@@ -106,4 +175,4 @@ class UserControl{
 }
 
 
-module.exports=UserControl
+module.exports=UserController
