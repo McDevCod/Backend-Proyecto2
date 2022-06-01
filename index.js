@@ -2,7 +2,7 @@
 const express = require("express")
 const path = require("path")
 const database= require("./libs/database")
-
+//const Employee=require("./controllers/user")
 //------------Inicialization----------//
 const app= express()
 const { port } = require("./config")  //app.set('port'.process.env.PORT|| 3000);
@@ -24,7 +24,8 @@ const usuarios=require("./routes/usuarios")
 const listas=require("./routes/listas")
 
 app.use(express.json())
-
+app.use(express.urlencoded({extended: false}))
+//app.use(methodOverride('method'))
 
 //------------Global Variables----------------//
 
@@ -46,8 +47,8 @@ app.use(login)
 //-------------------Static ----------------//
 app.use(express.static(path.join(__dirname,"static")))
 
-
-
+/*const empleado= new Employee()
+console.log(empleado)*/
 
 //----------listening-------------------------//
 app.listen(port, () =>{
