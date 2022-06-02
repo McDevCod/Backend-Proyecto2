@@ -4,7 +4,7 @@ const router = express.Router()
 
 router.get("/login",(request,response)=>{
     try{
-        return response.render("test",{
+        return response.render("login",{
             title: "Página login",
             pagina: "/login page"
         })

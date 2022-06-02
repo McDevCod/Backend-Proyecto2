@@ -1,9 +1,17 @@
-doctype html
-html(lang="en")
-    head
-        meta(charset="UTF-8")
-        meta(http-equiv="X-UA-Compatible", content="IE=edge")
-        meta(name="viewport", content="width=device-width, initial-scale=1.0")
-        title #{title}
-    body 
-        h1 #{pagina}
+extends layout/main-layout.pug
+block Main
+    h1(class ="text-red-900") #{pagina}
+
+//-
+    div.register_container
+        form(class= "p-6 max-w-sm mx-auto bg-white rounded-xl shadow-lg flex flex-col justify-around items-center space-x-8" action="/usuario/login" method="POST")
+            h3 Datos de inicio de sesion
+            div.inicio_sesion
+                label(for="username") Username
+                input(type="text", name="username")
+                label(for="password") Password
+                input(type="password", name="password")
+                input(type="submit", name="boton" value="Logearse")
+            div.register_message
+                p.message_reg #{error}
+//-
