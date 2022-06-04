@@ -41,15 +41,15 @@ class UserController{
     }
 
     static getUserForm(request,response){
-        try{
+       try{
             const control=new UserController()
             const viewdata = {
                 title:"Pagina de registro",
-                welcome:"Bienvenido " + control.nombre,
+               welcome:"Bienvenido " + control.nombre,
                 logStatus:"LogIn",
-                numItem:control.nitem          
+                numItem:control.nitem
             }
-            return control.render_view("usuario/registro",response,viewdata)
+            return control.render_view("registro",response,viewdata)
         }
         catch{
             console.log("No es posible cargar la página")
@@ -59,8 +59,6 @@ class UserController{
     static async newUser(request,response){
         const control=new UserController(request.body)
         const result=await control.create_user()
-        console.log("la respuesta fue")
-        console.log(result)
         if (!result.error){
             //renderizar a pagina main y enviar user id para el bienvenido
             response.json(result)   

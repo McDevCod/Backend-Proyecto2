@@ -1,39 +1,40 @@
-header
-    div.navbar_container
-        div.logo_container
-            img(class = "logo" src = "", alt = "Logo")
-        div.navbar
-            div.menu_bar
-            if loged == false
-                nav.nav_container
-                    div.menu_items
-                        a(class = "menu_item5" href="/usuario/registro") Registro
-                    div.mensaje_container
-                        a(class = "menu_item6" href="#") #{welcome} 
-                div.log_container
-                        a(class = "menu_item7" href="/usuario/login") LogIn
-            else if perfil == "usuario"
-                nav.nav_container
-                    div.menu_items
-                        a(class = "menu_item3" href="/lista/list") Listas
-                        a(class = "menu_item5" href="/usuario/registro") Registro
-                    div.mensaje_container
-                        a(class = "menu_item6" href="#") #{welcome} 
-                div.log_container
-                        a(class = "menu_item7" href="/usuario/logout") LogOut
-            else
-                nav.nav_container
-                    div.menu_items
-                        a(class = "menu_item1" href="/usuario/list") Usuarios
-                        a(class = "menu_item2" href="/item/list") Items
-                        a(class = "menu_item3" href="/lista/list") Listas
-                        a(class = "menu_item4" href="/repositorio/list") Repositorio
-                        a(class = "menu_item5" href="/usuario/registro") Registro
-                    div.mensaje_container
-                        a(class = "menu_item6" href="#") #{welcome} 
-                div.log_container
-                        a(class = "menu_item7" href="/usuario/login") LogIn
-                div.cart_container
-            div.cart_img
-                img(src="", alt="contenedor")
-                p #{numItem}
+header(class="flex w-1120 h-20 m-auto my-4")
+    div(class="flex flex-row items-start w-1120 h-20")
+        div(class="h-20 w-20")
+            img(class = "mx-auto h-12 w-auto" src = "/images/logo-600.svg", alt = "Logo")
+        div(class="flex w-1040 h-10 flex-col")
+            div(class="w-1040 h-10 flex flex-row justify-between border-b-2  border-l-gray-800 border-opacity-50")
+                if loged == false
+                    nav(class="w-880 h-10 flex flex-row justify-between ")
+                        div(class="w-640 h-10 flex flex-row justify-end items-center gap-8 ")
+                            a(class = "menu_item5" href="/usuario/registro") Registro
+                        div(class="flex w-40 h-10 items-center justify-center")
+                            a(class = "menu_item6" href="#") #{welcome} 
+                    div(class="flex w-40 h-10 p-4 items-center justify-end")
+                            a(class = "menu_item7" href="/usuario/login") LogIn
+                else if perfil == "usuario"
+                    nav(class="w-880 h-10 flex flex-row justify-between")
+                        div(class="w-640 h-10 flex flex-row justify-end items-center gap-8")
+                            a(class = "menu_item3" href="/lista/list") Listas
+                            a(class = "menu_item5" href="/usuario/registro") Registro
+                        div(class="flex w-40 h-10 items-center justify-center")
+                            a(class = "menu_item6" href="#") #{welcome} 
+                    div(class="flex w-40 h-10 p-4 items-center justify-end")
+                            a(class = "menu_item7" href="/usuario/logout") LogOut
+                else
+                    nav(class="w-880 h-10 flex flex-row justify-between")
+                        div(class="w-640 h-10 flex flex-row justify-end items-center gap-8 ")
+                            a(class = "menu_item1" href="/usuario/list") Usuarios
+                            a(class = "menu_item2" href="/item/list") Items
+                            a(class = "menu_item3" href="/lista/list") Listas
+                            a(class = "menu_item4" href="/repositorio/list") Repositorio
+                            a(class = "menu_item5" href="/usuario/registro") Registro
+                        div(class="flex w-40 h-10 items-center justify-center")
+                            a(class = "menu_item6" href="#") #{welcome} 
+                    div(class="flex w-40 h-10 p-4 items-center justify-end")
+                            a(class = "menu_item7" href="/usuario/login") LogOut
+            div(class="flex flex-row w-1040 h-10 p-2 ")
+                div(class="w-880")
+                div(class="flex items-center justify-end bg-gray-500 bg-opacity-30 rounded-2xl")
+                    img(src="/images/music.png", alt="contenedor")
+                    p(class="caret-black p-5") #{numItem} 0

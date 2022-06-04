@@ -7,9 +7,13 @@ const database= require("./libs/database")
 const app= express()
 const { port } = require("./config")  //app.set('port'.process.env.PORT|| 3000);
 
-//--------Settings-----/
-app.set("views",'./views')
-app.set("view engine","pug")
+
+
+//-------------------Static ----------------//
+app.use(express.static(path.join(__dirname,"static")))
+app.use(express.urlencoded({extended: true}))
+
+
 
 
 //--------------Middlewares------------//
@@ -24,8 +28,14 @@ const usuarios=require("./routes/usuarios")
 const listas=require("./routes/listas")
 
 app.use(express.json())
-app.use(express.urlencoded({extended: true}))
-//app.use(methodOverride('method'))
+
+
+
+
+//--------Settings-----/
+app.set("view engine","pug")
+app.set("views",'views')
+
 
 //------------Global Variables----------------//
 
@@ -44,8 +54,7 @@ app.use(login)
 
 
 
-//-------------------Static ----------------//
-app.use(express.static(path.join(__dirname,"static")))
+
 
 /*const empleado= new Employee()
 console.log(empleado)*/

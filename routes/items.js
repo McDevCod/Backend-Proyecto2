@@ -6,7 +6,7 @@ const ItemControl=require("../controllers/itemCtrl")
 
 router.get("/items",(request,response)=>{
     try{
-        return response.render("test",{
+        return response.render("registro",{
             title: "Página items",
             pagina: "/items Page"
         })
